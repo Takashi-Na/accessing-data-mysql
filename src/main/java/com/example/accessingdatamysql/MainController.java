@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping(path = "/demo")
+@RequestMapping(path="/demo")
 // アプリケーションパスの指定
 public class MainController {
   @Autowired
@@ -18,7 +18,7 @@ public class MainController {
   // Springで自動生成され、データを処理するために使用
   private UserRepository userRepository;
 
-  @PostMapping(path = "/add")
+  @PostMapping(path="/add")
   public @ResponseBody String addNewUser(@RequestParam String name, @RequestParam String email) {
     // @ResponseBodyはreturnのStringがViewではなく応答だということを意味する
     // @RequestParamはGETかPOSTリクエストからのパラメータで会うことを意味する
@@ -30,7 +30,7 @@ public class MainController {
     return "Saved";
   }
   
-  @GetMapping(path = "/all")
+  @GetMapping(path="/all")
   public @ResponseBody Iterable<User> getAllUsers() {
     // JSONかXMLとusersをreturnとする
     return userRepository.findAll();
